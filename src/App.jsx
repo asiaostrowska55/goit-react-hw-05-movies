@@ -1,20 +1,20 @@
 import { Routes, Route } from 'react-router-dom';
-import Home from './Home/Home';
-import NotFound from './NotFound/NotFound';
+import { lazy } from 'react';
+
+const Home = lazy(() => import('./pages/Home/Home'));
+const NotFound = lazy(() => import('./pages/NotFound/NotFound'));
+const Movies = lazy(() => import('./pages/Movies/Movies'));
+const MovieDetails = lazy(() => import('./pages/MovieDetails/MovieDetails'));
+const Cast = lazy(() => import('./pages/MovieDetails/Cast'));
+const Reviews = lazy(() => import('./pages/MovieDetails/Reviews'));
 
 export const App = () => {
   return (
     <div>
-      {/* use Link or NavLink ? */}
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/">Movies</Link>
-      </nav>
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movies />}>
-          <Route path="/movies/:movieID/*" element={<MovieDetails />} />
+          <Route path="/movies/:id" element={<MovieDetails />} />
           <Route path="cast" element={<Cast />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>
