@@ -1,20 +1,15 @@
 import React from 'react';
 import css from './MovieElement.module.css';
-import { Link } from './App.styled';
+import { Link } from '../../App.styled';
 
-export const MoviesElement = ({
-  movieID,
-  movieTitle,
-  to,
-  from,
-  movieBackdrop,
-}) => {
+const MovieElement = ({ movieID, movieTitle, to, from, movieBackdrop }) => {
   return (
-    <div key={movieID}>
+    <li key={movieID}>
       <Link className={css.element} to={`${to}`} state={{ from: from }}>
         <img className={css.backdrop} src={movieBackdrop} alt={movieTitle} />
         <p className={css.name}>{movieTitle}</p>
       </Link>
-    </div>
+    </li>
   );
 };
+export default MovieElement;

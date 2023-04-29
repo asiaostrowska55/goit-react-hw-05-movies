@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { fetchTrendingMovies } from 'functions/api';
+import MovieElement from 'components/MovieElement/MovieElement';
 
 const Home = ({ children }) => {
   const location = useLocation();
@@ -23,18 +24,16 @@ const Home = ({ children }) => {
       <div>
         <h2>Trending today</h2>
         <ul>
-          {children}
-          {!!movie &&
-            movie.map(({ movieId, movieTitle, movieBackdrop }) => (
-              <MoviesElement
-                key={movieId}
-                movieTitle={movieTitle}
-                movieBackdrop={movieBackdrop}
-                to={'movies/' + movieId}
-                from={location}
-                movieID={movieId}
-              />
-            ))}
+          {movie.map(({ movieId, movieTitle, movieBackdrop }) => (
+            <MovieElement
+              key={movieId}
+              movieTitle={movieTitle}
+              movieBackdrop={movieBackdrop}
+              to={'/movies/' + movieId}
+              from={location}
+              movieID={movieId}
+            />
+          ))}
         </ul>
       </div>
     </main>

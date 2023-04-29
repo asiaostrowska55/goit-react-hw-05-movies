@@ -32,3 +32,21 @@ export const handleMoviesData = (response, movies) => {
     });
   });
 };
+
+export const fetchMovieDetails = async id => {
+  const response = await fetchMovies(`/movies/${id}`);
+  if (response === null) {
+    return null;
+  }
+  const { poster_path, title, vote_average, overview, genres, tagline } =
+    response.data;
+  const details = {
+    posterPath: IMG_PATH + poster_path,
+    title,
+    voteAverage: vote_average,
+    overview,
+    genres,
+    tagline,
+  };
+  return details;
+};
