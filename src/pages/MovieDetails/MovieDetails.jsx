@@ -5,6 +5,7 @@ import { Outlet } from 'react-router-dom';
 import { Link } from '../../App.styled';
 // import { fetchMovieDetails } from 'functions/api';
 import { fetchMovies } from 'functions/api';
+import { API_KEY } from '../../functions/api';
 
 const MovieDetails = () => {
   const [details, setDetails] = useState([]);
@@ -12,7 +13,7 @@ const MovieDetails = () => {
   const params = useParams();
   const id = params.movieId;
 
-  const URL = `https://api.themoviedb.org/3/movie/${id}?api_key=e6237ab11d37482483effc956909f434`;
+  const URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
 
   useEffect(() => {
     const fetchDetails = async () => {

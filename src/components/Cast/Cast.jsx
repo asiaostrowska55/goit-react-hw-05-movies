@@ -3,13 +3,13 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Loader from 'components/Loader/Loader';
 import css from './Cast.module.css';
-import API_KEY from '../../functions/api';
+import { API_KEY } from '../../functions/api';
 
 const Cast = () => {
   const [cast, setCast] = useState(null);
   const [loader, setLoader] = useState(false);
   const movieId = useParams();
-  const URL = `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=api_key=${API_KEY}&language=en-US`;
+  const URL = `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`;
 
   useEffect(() => {
     setLoader(true);

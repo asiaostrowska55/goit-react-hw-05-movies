@@ -4,7 +4,7 @@ import { fetchMovies } from 'functions/api';
 import Loader from 'components/Loader/Loader';
 import { Link } from 'react-router-dom';
 import { Notify } from 'notiflix';
-import API_KEY from '../../functions/api';
+import { API_KEY } from '../../functions/api';
 
 const Movies = () => {
   const [value, setValue] = useState('');
@@ -16,7 +16,7 @@ const Movies = () => {
   };
 
   const handleSubmit = async event => {
-    setIsLoading(true);
+    setLoader(true);
     event.preventDefault();
     event.currentTarget.reset();
     if (value.trim() === '') {
