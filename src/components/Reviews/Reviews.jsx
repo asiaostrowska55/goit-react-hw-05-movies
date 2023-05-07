@@ -25,7 +25,7 @@ const Reviews = () => {
         }));
         setReviews(results);
       } else {
-        throw new Error('Error!');
+        throw new Error('Error in Reviews');
       }
     };
     getReviews();

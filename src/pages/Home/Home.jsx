@@ -37,7 +37,7 @@ const Home = () => {
   return (
     <main>
       <div>
-        <h2>Trending today</h2>
+        <h2>Movies trending today</h2>
         <ul>
           {loader ? (
             <Loader />

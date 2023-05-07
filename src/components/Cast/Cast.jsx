@@ -31,7 +31,7 @@ const Cast = () => {
         // }));
         // setCast(results);
       } else {
-        throw new Error('Something went wrong...');
+        throw new Error('Error in Cast');
       }
     };
     getCast();
@@ -65,35 +65,5 @@ const Cast = () => {
     </>
   );
 };
-
-//   return (
-//     <>
-//       {loader && <Loader />}
-//       <h2>Cast</h2>
-//       <ul className={css.castList}>
-//         {cast && cast.length ? (
-//           <>
-//             {cast.map(({ id, profile_path, name, character }) => (
-//               <li key={id}>
-//                 <img
-//                   src={
-//                     profile_path
-//                       ? `https://www.themoviedb.org/t/p/w500/${profile_path}`
-//                       : `https://icon-library.com/images/no-user-image-icon/no-user-image-icon-27.jpg`
-//                   }
-//                   alt={name}
-//                 />
-//                 <h3>{name}</h3>
-//                 <p>Character: {character}</p>
-//               </li>
-//             ))}
-//           </>
-//         ) : (
-//           <p> Cast information is not available for this movie.</p>
-//         )}
-//       </ul>{' '}
-//     </>
-//   );
-// };
 
 export default Cast;

@@ -29,7 +29,7 @@ const MovieDetails = () => {
             src={
               details.poster_path
                 ? `https://image.tmdb.org/t/p/w500${details.poster_path}`
-                : `https://bitsofco.de/content/images/2018/12/broken-1.png`
+                : `https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg`
             }
             alt={details.title}
           />
@@ -55,7 +55,7 @@ const MovieDetails = () => {
       <section className={css.extraInfoWrapper}>
         <h3>Overview</h3>
         <p>{details.overview}</p>
-        <h3>Extra information</h3>
+        <h3>Additional information</h3>
         <article className={css.buttonsWrapper}>
           <Link to="cast">
             <button type="button">Cast</button>
