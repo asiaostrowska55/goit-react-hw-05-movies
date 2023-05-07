@@ -8,7 +8,7 @@ import { API_KEY } from '../../functions/api';
 const Reviews = () => {
   const [loader, setLoader] = useState(false);
   const [reviews, setReviews] = useState(null);
-  const movieId = useParams();
+  const { movieId } = useParams();
   const URL = `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US`;
 
   useEffect(() => {

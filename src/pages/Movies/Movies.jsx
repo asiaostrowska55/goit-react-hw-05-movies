@@ -8,45 +8,50 @@ import { API_KEY } from '../../functions/api';
 
 const Movies = () => {
   const [value, setValue] = useState('');
-  const [loader, setLoader] = useState(false);
-  const movies = useState([]);
-
-  const handleChange = event => {
-    setValue(event.target.value);
-  };
+  const [isLoading, setIsLoading] = useState(false);
+  const [movies] = useState([]);
 
   const handleSubmit = async event => {
-    setLoader(true);
+    setIsLoading(true);
     event.preventDefault();
     event.currentTarget.reset();
     if (value.trim() === '') {
-      setLoader(false);
+      setIsLoading(false);
+      return Notify.info('Please provide a query');
     }
     const movieList = await fetchMovies(
       `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${value}`
     );
-    if (movieList.response.length === 0) {
-      setLoader(false);
+    if (movieList.results.length === 0) {
+      setIsLoading(false);
+      movies.length = 0;
       return Notify.info(
-        'There are no movie titles that match your search criteria. Please try with different title'
+        'We could not find the movie you are looking for. Please try another title.'
       );
     }
     if (movieList) {
-      setLoader(false);
-      const response = [...movieList.response];
-      response.map(movie => ({
+      setIsLoading(false);
+      const results = [...movieList.results];
+      results.map(movie => ({
         title: movie.title,
         id: movie.id,
       }));
-      response.forEach(result => {
+
+      movies.length = 0;
+
+      results.forEach(result => {
         movies.push({
           movieId: result.id,
           movieTitle: result.title,
         });
       });
     } else {
-      throw new Error('Error!');
+      throw new Error('Error in Movies page');
     }
+  };
+
+  const handleChange = event => {
+    setValue(event.target.value);
   };
 
   return (
@@ -55,7 +60,7 @@ const Movies = () => {
       <input id="searchInput" type="text" onChange={handleChange} />
       <button type="submit">Search</button>
       <ul>
-        {loader ? (
+        {isLoading ? (
           <Loader />
         ) : (
           movies.length !== 0 &&

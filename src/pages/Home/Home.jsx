@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-// import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { fetchMovies } from 'functions/api';
 import { API_KEY } from '../../functions/api';
@@ -23,7 +22,7 @@ const Home = () => {
         id: movie.id,
       }));
     } else {
-      throw new Error('Error!');
+      throw new Error('Error! Home page');
     }
   };
 
