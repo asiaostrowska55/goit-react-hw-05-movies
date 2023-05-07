@@ -40,7 +40,7 @@ const Cast = () => {
   return (
     <>
       {loader && <Loader />}
-      <h2>Cast</h2>
+      <h2 className={css.header}>Cast</h2>
       <ul className={css.castList}>
         {cast && cast.length ? (
           <>
@@ -53,7 +53,7 @@ const Cast = () => {
                       : `https://icon-library.com/images/no-user-image-icon/no-user-image-icon-27.jpg`
                   }
                 />
-                <h3>{name}</h3>
+                <h3 className={css.header}>{name}</h3>
                 <p>Character: {character}</p>
               </li>
             ))}
