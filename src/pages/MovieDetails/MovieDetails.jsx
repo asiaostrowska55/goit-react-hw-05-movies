@@ -1,91 +1,80 @@
-import { useEffect, useState, Suspense } from 'react';
+import { useEffect, useState } from 'react';
 import css from './MovieDetails.module.css';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { Link } from '../../App.styled';
-import { fetchMovieDetails } from 'functions/api';
+// import { fetchMovieDetails } from 'functions/api';
+import { fetchMovies } from 'functions/api';
 
 const MovieDetails = () => {
-  const [movieDetails, setMovieDetails] = useState(null);
-  const location = useLocation();
-  const { id } = useParams();
+  const [details, setDetails] = useState([]);
+  // const location = useLocation();
+  const params = useParams();
+  const id = params.movieId;
 
-  const backLinkHref = location.state?.from ?? '/';
+  const URL = `https://api.themoviedb.org/3/movie/${id}?api_key=e6237ab11d37482483effc956909f434`;
 
   useEffect(() => {
     const fetchDetails = async () => {
-      const response = await fetchMovieDetails(id);
+      const response = await fetchMovies(URL);
       if (response === null) {
-        setMovieDetails('');
+        setDetails('');
       } else {
-        setMovieDetails(response);
+        setDetails(response);
       }
     };
     fetchDetails();
-  }, [id]);
+  }, [URL]);
 
-  let genres = [...movieDetails.genres].map(genre => genre.name).join(', ');
+  // let genres = [...setDetails.genres].map(genre => genre.name).join(', ');
 
   return (
-    <main>
-      <div>
-        <Link to={backLinkHref} className={css.movieLink}>
-          &lt; Go back
-        </Link>
+    <>
+      <section className={css.movieDetailsWrapper}>
+        {details.poster_path && (
+          <img
+            src={
+              details.poster_path
+                ? `https://image.tmdb.org/t/p/w500${details.poster_path}`
+                : `https://bitsofco.de/content/images/2018/12/broken-1.png`
+            }
+            alt={details.title}
+          />
+        )}
         <div>
-          <img src={movieDetails.poster_path} alt={movieDetails.title}></img>
-          <div className={css.movieDesc}>
-            <h1 className={css.movieDescTitle}>{movieDetails.title}</h1>
-            <span className={css.movieDescInfo}>
-              User Score: {movieDetails.voteAverage}{' '}
-            </span>
-            <h2 className={css.movieDescCategory}>Overview</h2>
-            <span className={css.movieDescInfo}>{movieDetails.overview}</span>
-            <h2 className={css.movieDescCategory}>Genres</h2>
-            <span className={css.movieDescInfo}>{genres}</span>
-          </div>
-        </div>
-        <section>
-          <span>Additional information:</span>
-          <ul className={css.movieOthersList}>
-            <li className={css.movieOthersListItem}>
-              <Link
-                to="cast"
-                className={css.movieOthersListLink}
-                state={{ from: location.state.from }}
-              >
-                Cast
-              </Link>
+          <h2>{details.title}</h2>
+          <ul>
+            <li>
+              <h3>User rating: </h3>
+              <span>{details.vote_average}</span>
             </li>
-            <li className={css.movieOthersListItem}>
-              <Link
-                to="reviews"
-                className={css.movieOthersListLink}
-                state={{ from: location.state.from }}
-              >
-                Reviews
-              </Link>
+            <li>
+              <h3>Genres: </h3>
+              {details.genres !== undefined && (
+                <span>{`${details.genres
+                  .map(genre => genre.name)
+                  .join(', ')}`}</span>
+              )}
             </li>
           </ul>
-        </section>
-        <section>
-          <Suspense fallback={<div>Loading...</div>}>
-            <Outlet />
-          </Suspense>
-        </section>
-      </div>
-    </main>
+        </div>
+      </section>
+      <section className={css.extraInfoWrapper}>
+        <h3>Overview</h3>
+        <p>{details.overview}</p>
+        <h3>Additional information</h3>
+        <article className={css.buttonsWrapper}>
+          <Link to="cast">
+            <button type="button">Cast</button>
+          </Link>
+          <Link to="reviews">
+            <button type="button">Reviews</button>
+          </Link>
+        </article>
+        <Outlet />
+      </section>
+    </>
   );
 };
-export default MovieDetails;
 
-{
-  /* <ul className={[css.movie__genres]}>
-            {genres.map((genre, index) => (
-              <li key={genre.id}>
-                {genre.name}
-                {index !== genres.length - 1 ? ',' : ''}
-              </li>
-            ))}
-          </ul> */
-}
+export default MovieDetails;
