@@ -11,14 +11,6 @@
   color: rgba(7, 75, 153, 0.886);
 }
 
-p {
-  margin: 10px;
-}
-
 h2 {
   margin-left: 10px;
-}
-
-ul {
-  max-width: fit-content;
 }
