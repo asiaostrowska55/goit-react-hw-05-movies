@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/186.c039547b.chunk.css","mappings":"AAAA,uBAKE,aAAc,CAHd,UAAY,CADZ,cAAe,CAEf,QAAU,CACV,uBAEF","sources":["components/Loader/Loader.module.css"],"sourcesContent":[".loader {\n  position: fixed;\n  opacity: 0.5;\n  scale: 0.8;\n  transition-duration: 400ms;\n  margin: 0 auto;\n}\n"],"names":[],"sourceRoot":""}
