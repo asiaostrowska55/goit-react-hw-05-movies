@@ -34,7 +34,7 @@ const Home = () => {
     };
     fetchMovies();
     // eslint-disable-next-line
-  }, [URL]);
+  }, []);
 
   return (
     <main>

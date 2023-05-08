@@ -12,7 +12,7 @@ const Header = () => {
     <header>
       <nav className={css.headerNav}>
         <StyledNavLink className={css.link} to="/">
-          Homepage
+          Home
         </StyledNavLink>
         <StyledNavLink className={css.link} to="/movies">
           Movies
