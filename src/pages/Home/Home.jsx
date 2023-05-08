@@ -33,7 +33,7 @@ const Home = () => {
       setMovies(response);
     };
     fetchMovies();
-  }, []);
+  }, [URL]);
 
   return (
     <main>

@@ -28,7 +28,7 @@ const Reviews = () => {
       }
     };
     getReviews();
-  }, []);
+  }, [URL]);
 
   return (
     <>

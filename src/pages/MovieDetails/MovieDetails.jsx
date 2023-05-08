@@ -32,6 +32,7 @@ const MovieDetails = () => {
                 ? `https://image.tmdb.org/t/p/w500${details.poster_path}`
                 : `https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg`
             }
+            alt={details.title}
           />
         )}
         <article>

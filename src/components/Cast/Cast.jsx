@@ -35,7 +35,7 @@ const Cast = () => {
       }
     };
     getCast();
-  }, []);
+  }, [URL]);
 
   return (
     <>
@@ -52,6 +52,7 @@ const Cast = () => {
                       ? `https://www.themoviedb.org/t/p/w500/${profile_path}`
                       : `https://web.natur.cuni.cz/zoology/eei/wp-content/uploads/2021/04/no_image_portrait.jpg`
                   }
+                  alt={name}
                 />
                 <h3 className={css.name}>{name}</h3>
                 <p className={css.character}>Character: {character}</p>
