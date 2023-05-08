@@ -27,13 +27,13 @@ const Home = () => {
     }
   };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const fetchMovies = async () => {
       const response = await fetchTrendingMovies();
       setMovies(response);
     };
     fetchMovies();
+    // eslint-disable-next-line
   }, [URL]);
 
   return (
