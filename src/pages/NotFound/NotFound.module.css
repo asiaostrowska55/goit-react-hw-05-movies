@@ -24,18 +24,6 @@ h1 {
   cursor: pointer;
   font-family: 'Nunito Sans';
 }
-a {
-  display: block;
-  font-size: 1.75em;
-  font-weight: bold;
-  text-decoration: none;
-  color: inherit;
-  transition: 0.24s ease-in-out;
-}
-a:hover {
-  text-decoration: none;
-  color: white;
-}
 
 .btn {
   z-index: 1;

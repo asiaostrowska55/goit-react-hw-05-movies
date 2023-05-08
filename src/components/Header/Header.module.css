@@ -1,3 +1,22 @@
 .headerNav {
-  max-width: max-content;
+  font-size: 36px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  border-bottom: 2px solid black;
+}
+
+.link {
+  display: block;
+  font-size: 36px;
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
+  transition: 0.24s ease-out;
+  margin-bottom: 15px;
+}
+.link:hover {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.32);
 }

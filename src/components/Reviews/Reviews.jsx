@@ -34,11 +34,10 @@ const Reviews = () => {
   return (
     <>
       {loader && <Loader />}
-      <h2>Reviews</h2>
       <ul>
         {reviews && reviews.length ? (
           reviews.map(({ id, author, content }) => (
-            <li key={id}>
+            <li className={css.listEl} key={id}>
               <h3>Author: {author}</h3>
               <p>{content}</p>
             </li>

@@ -40,21 +40,21 @@ const Cast = () => {
   return (
     <>
       {loader && <Loader />}
-      <h2 className={css.header}>Cast</h2>
       <ul className={css.castList}>
         {cast && cast.length ? (
           <>
             {cast.map(({ id, profile_path, name, character }) => (
-              <li key={id}>
+              <li className={css.listEl} key={id}>
                 <img
+                  className={css.castImg}
                   src={
                     profile_path
                       ? `https://www.themoviedb.org/t/p/w500/${profile_path}`
-                      : `https://icon-library.com/images/no-user-image-icon/no-user-image-icon-27.jpg`
+                      : `https://web.natur.cuni.cz/zoology/eei/wp-content/uploads/2021/04/no_image_portrait.jpg`
                   }
                 />
-                <h3 className={css.header}>{name}</h3>
-                <p>Character: {character}</p>
+                <h3 className={css.name}>{name}</h3>
+                <p className={css.character}>Character: {character}</p>
               </li>
             ))}
           </>

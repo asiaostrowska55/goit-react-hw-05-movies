@@ -35,14 +35,21 @@ const Movies = () => {
       results.map(movie => ({
         title: movie.title,
         id: movie.id,
+        release_date: movie.release_date,
       }));
 
       movies.length = 0;
 
       results.forEach(result => {
+        const releaseDate = new Date(result.release_date);
+        const releaseYear = releaseDate.toLocaleDateString('en-US', {
+          year: 'numeric',
+        });
+
         movies.push({
           movieId: result.id,
           movieTitle: result.title,
+          releaseDate: releaseYear,
         });
       });
     } else {
@@ -56,8 +63,14 @@ const Movies = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="searchInput" />{' '}
-      <input id="searchInput" type="text" onChange={handleChange} />
+      <label htmlFor="searchInput" />
+      {''}
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Search for movie"
+        onChange={handleChange}
+      />
       <button type="submit">Search</button>
       <ul>
         {isLoading ? (
@@ -65,9 +78,10 @@ const Movies = () => {
         ) : (
           movies.length !== 0 &&
           movies.map(movie => (
-            <li key={movie.movieId}>
-              <Link to={`/movies/${movie.movieId}`}>
+            <li className={css.listEl} key={movie.movieId}>
+              <Link className={css.link} to={`/movies/${movie.movieId}`}>
                 <p>{movie.movieTitle}</p>
+                <p className={css.date}>{movie.releaseDate} </p>
               </Link>
             </li>
           ))

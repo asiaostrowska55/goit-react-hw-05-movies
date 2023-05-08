@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import css from './Home.module.css';
 import { Link } from 'react-router-dom';
 import { fetchMovies } from 'functions/api';
 import { API_KEY } from '../../functions/api';
@@ -46,7 +47,7 @@ const Home = () => {
             movies.length &&
             movies.map(({ id, title }) => (
               <li key={id}>
-                <Link to={`/movies/${id}`}>
+                <Link className={css.link} to={`/movies/${id}`}>
                   <p>{title}</p>
                 </Link>
               </li>

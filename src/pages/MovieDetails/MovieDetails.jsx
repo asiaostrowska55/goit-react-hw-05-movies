@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import css from './MovieDetails.module.css';
 import { useParams } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
-import { Link } from '../../App.styled';
-import { fetchMovies } from 'functions/api';
-import { API_KEY } from '../../functions/api';
+import { Link } from 'react-router-dom';
+import { fetchMovies, API_KEY } from 'functions/api';
+import {} from 'react-router-dom';
 
 const MovieDetails = () => {
   const [details, setDetails] = useState([]);
@@ -23,7 +23,7 @@ const MovieDetails = () => {
 
   return (
     <>
-      <section className={css.movieDetailsWrapper}>
+      <section className={css.wrapper}>
         {details.poster_path && (
           <img
             src={
@@ -31,15 +31,14 @@ const MovieDetails = () => {
                 ? `https://image.tmdb.org/t/p/w500${details.poster_path}`
                 : `https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg`
             }
-            alt={details.title}
           />
         )}
         <article>
-          <h2>{details.title}</h2>
+          <h2 className={css.title}>{details.title}</h2>
           <ul>
             <li>
-              <h3>User rating: </h3>
-              <span>{details.vote_average}</span>
+              <h3> User rating: </h3>
+              <span> ☆ {details.vote_average}</span>
             </li>
             <li>
               <h3>Genres: </h3>
@@ -50,20 +49,22 @@ const MovieDetails = () => {
               )}
             </li>
           </ul>
+          <div className={css.overview}>
+            <h3 className={css.overviewTitle}>Overview</h3>
+            <p>{details.overview}</p>
+          </div>
         </article>
       </section>
-      <section className={css.extraInfoWrapper}>
-        <h3>Overview</h3>
-        <p>{details.overview}</p>
-        <h3>Additional information</h3>
-        <article className={css.buttonsWrapper}>
+      <section>
+        <h3 className={css.additional}>Additional information</h3>
+        <div className={css.btn}>
           <Link to="cast">
             <button type="button">Cast</button>
           </Link>
           <Link to="reviews">
             <button type="button">Reviews</button>
           </Link>
-        </article>
+        </div>
         <Outlet />
       </section>
     </>

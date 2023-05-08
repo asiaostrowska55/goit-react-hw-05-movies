@@ -1,0 +1,59 @@
+section {
+  padding: 30px;
+}
+.wrapper {
+  display: flex;
+  align-content: space-around;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  border-bottom: 2px solid black;
+}
+img {
+  max-width: 350px;
+  box-shadow: 0px 7px 28px -5px rgba(178, 178, 178, 1);
+  border: 1px solid rgb(187, 187, 187);
+}
+.title {
+  margin-left: 0;
+  font-size: 30px;
+  border-bottom: 3px solid rgb(187, 187, 187);
+}
+.overview {
+  margin-top: 30px;
+}
+.overviewTitle {
+  font-size: 22px;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgb(187, 187, 187);
+}
+p {
+  font-size: 18px;
+}
+.additional {
+  margin: 0 auto;
+  font-size: 26px;
+}
+.btn {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+button {
+  height: 30px;
+  border: 1px solid rgb(189, 189, 189);
+  border-radius: 3px;
+  box-shadow: 0px 0px 2px 0px rgba(190, 190, 190, 1);
+  border: 1px solid rgb(187, 187, 187);
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+button:hover,
+:focus {
+  background-color: rgb(75, 120, 243);
+  color: white;
+}

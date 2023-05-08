@@ -1,7 +1,21 @@
-.header {
-  color: black;
-}
-
 .castList {
-  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  justify-items: start;
+  padding-left: 0;
+}
+.listEl {
+  list-style: none;
+  width: 200px;
+  padding: 10px;
+}
+.castImg {
+  width: 200px;
+  max-width: 350px;
+  min-height: 300px;
+  box-shadow: 0px 7px 28px -5px rgba(178, 178, 178, 1);
+  border: 1px solid rgb(187, 187, 187);
+  object-fit: cover;
 }
