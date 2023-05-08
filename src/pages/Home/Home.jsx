@@ -27,6 +27,7 @@ const Home = () => {
     }
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const fetchMovies = async () => {
       const response = await fetchTrendingMovies();

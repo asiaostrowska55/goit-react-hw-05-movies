@@ -4,7 +4,7 @@ const NotFound = () => {
       <h1
         style={{
           fontSize: '7.5em',
-          margin: '15px 0px',
+          marginLeft: '15px',
           fontWeight: 'bold',
         }}
       >
