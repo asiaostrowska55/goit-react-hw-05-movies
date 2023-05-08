@@ -44,7 +44,7 @@ const Cast = () => {
         {cast && cast.length ? (
           <>
             {cast.map(({ id, profile_path, name, character }) => (
-              <li className={css.listEl} key={id}>
+              <li className={css.castEl} key={id}>
                 <img
                   className={css.castImg}
                   src={

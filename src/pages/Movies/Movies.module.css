@@ -15,21 +15,7 @@ input:focus {
   background-color: rgb(255, 255, 255);
   color: black;
 }
-button {
-  height: 30px;
-  border: 1px solid rgb(189, 189, 189);
-  border-radius: 3px;
-  box-shadow: 0px 0px 2px 0px rgba(190, 190, 190, 1);
-  border: 1px solid rgb(187, 187, 187);
-  background-color: white;
-  cursor: pointer;
-  transition: all 0.2s ease-out;
-}
-button:hover,
-:focus {
-  background-color: rgb(75, 120, 243);
-  color: white;
-}
+
 .link {
   display: block;
   font-size: 20px;
@@ -51,9 +37,6 @@ button:hover,
   }
 }
 
-ul {
+.movieList {
   margin-top: 20px;
-}
-p {
-  margin: 0 auto;
 }

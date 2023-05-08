@@ -1,5 +1,4 @@
 import Loader from 'components/Loader/Loader';
-import css from './Reviews.module.css';
 import { fetchMovies } from 'functions/api';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
@@ -37,7 +36,7 @@ const Reviews = () => {
       <ul>
         {reviews && reviews.length ? (
           reviews.map(({ id, author, content }) => (
-            <li className={css.listEl} key={id}>
+            <li style={{ listStyle: 'circle' }} key={id}>
               <h3>Author: {author}</h3>
               <p>{content}</p>
             </li>

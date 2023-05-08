@@ -26,6 +26,7 @@ const MovieDetails = () => {
       <section className={css.wrapper}>
         {details.poster_path && (
           <img
+            className={css.poster}
             src={
               details.poster_path
                 ? `https://image.tmdb.org/t/p/w500${details.poster_path}`

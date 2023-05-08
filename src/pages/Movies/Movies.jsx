@@ -72,7 +72,7 @@ const Movies = () => {
         onChange={handleChange}
       />
       <button type="submit">Search</button>
-      <ul>
+      <ul className={css.movieList}>
         {isLoading ? (
           <Loader />
         ) : (
