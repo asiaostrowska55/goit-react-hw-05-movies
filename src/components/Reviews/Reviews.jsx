@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { API_KEY } from '../../functions/api';
 
+import parse from 'html-react-parser';
+
 const Reviews = () => {
   const [loader, setLoader] = useState(false);
   const [reviews, setReviews] = useState(null);
@@ -30,6 +32,8 @@ const Reviews = () => {
     getReviews();
   }, [URL]);
 
+  const parse = require('html-react-parser');
+
   return (
     <>
       {loader && <Loader />}
@@ -38,7 +42,7 @@ const Reviews = () => {
           reviews.map(({ id, author, content }) => (
             <li style={{ listStyle: 'circle' }} key={id}>
               <h3>Author: {author}</h3>
-              <p>{content}</p>
+              <p>{parse(content)}</p>
             </li>
           ))
         ) : (
@@ -50,3 +54,5 @@ const Reviews = () => {
 };
 
 export default Reviews;
+
+// dangerouslySetInnerHTML={{__html: }}
