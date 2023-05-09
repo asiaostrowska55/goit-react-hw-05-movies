@@ -4,8 +4,6 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { API_KEY } from '../../functions/api';
 
-import parse from 'html-react-parser';
-
 const Reviews = () => {
   const [loader, setLoader] = useState(false);
   const [reviews, setReviews] = useState(null);
